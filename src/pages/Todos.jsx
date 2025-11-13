@@ -5,6 +5,8 @@ import TextField from '../components/TextField';
 import Button from '../components/Button';
 import TodoItem from '../components/TodoItem';
 import TodoFilters from '../components/TodoFilters';
+import { toast } from "react-toastify";
+
 import {
   addTodo,
   toggleTodo,
@@ -45,6 +47,7 @@ export default function Todos() {
         })
       );
       setEditingId(null);
+      toast.success("Task Updated Successfully! 🎉");
     } else {
       // Create new todo
       dispatch(
@@ -55,7 +58,7 @@ export default function Todos() {
         })
       );
     }
-
+toast.success("Task Created Successfully! 🎉");
     // Reset form fields
     setValues({ title: '', description: '' });
   };
