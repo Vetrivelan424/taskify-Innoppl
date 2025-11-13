@@ -2,6 +2,8 @@ import React from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { logout } from '../features/auth/authSlice';
+import logo from '../Images/logo/taskify-logo.png'
+import DummyImage from '../Images/logo/dummy_images.jpg';
 
 export default function Navbar() {
   const { pathname } = useLocation();
@@ -16,25 +18,30 @@ export default function Navbar() {
   };
 
   return (
-    <div className="header">
-      <div className="brand">UserMgmt</div>
-      <nav className="nav">
+    <> {!isAuthed ? "" :
+    <div className="header flex gap-[15px] p-[15px] shadow-[0px_0px_0px_1px_rgba(0,0,0,0.1)] fixed top-0 w-full bg-white">
+      <div className="brand mt-[5px]">
+        <img src={logo} alt='logo' width={130}></img>
+      </div>
+      <nav className="nav flex gap-[20px] justify-between items-center w-full">
+
         {isAuthed && (
-          <>
-            <Link to="/dashboard" className={pathname === '/dashboard' ? 'badge' : ''}>Dashboard</Link>
-            <Link to="/profile" className={pathname === '/profile' ? 'badge' : ''}>Profile</Link>
-            <Link to="/todos" className={pathname === '/todos' ? 'badge' : ''}>Todos</Link>
-          </>
+          <div className='flex gap-[15px]'>
+            <Link to="/dashboard" className={`${pathname === '/dashboard' ? 'badge bg-[#F3F4F6FF]' : ''} p-[5px_12px] rounded-[4px]` }>Dashboard</Link>
+            <Link to="/profile" className={`${pathname === '/profile' ? 'badge bg-[#F3F4F6FF]' : ''} p-[5px_12px] rounded-[4px]`}>Profile</Link>
+            <Link to="/todos" className={`${pathname === '/todos' ? 'badge bg-[#F3F4F6FF]' : ''} p-[5px_12px] rounded-[4px]`}>To-Do List</Link>
+          </div>
         )}
-        {!isAuthed ? (
-          <Link to="/login" className={pathname === '/login' ? 'badge' : ''}>Login</Link>
-        ) : (
-          <>
-            <span className="badge">Hi, {username}</span>
-            <button className="btn danger" onClick={onLogout}>Logout</button>
-          </>
-        )}
+        {!isAuthed ? ""
+        : (
+          <div className='flex gap-[15px] items-center'>
+            <img className='w-[42px] h-[42px] rounded-full border border-[#bec7d6]' alt='logo Image' src={DummyImage}></img>
+            <span className="badge">Hi, <span className='font-bold text-[17px] capitalize'>{username}</span></span>
+            <button className="btn danger bg-red-500 p-[5px_12px] text-white rounded-[4px] cursor-pointer" onClick={onLogout}>Logout</button>
+          </div>
+        )} 
       </nav>
-    </div>
+    </div>}
+     </>
   );
 }

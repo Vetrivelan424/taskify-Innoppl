@@ -5,6 +5,8 @@ import useForm from '../hooks/useForm';
 import TextField from '../components/TextField';
 import Button from '../components/Button';
 import { loginThunk } from '../features/auth/authSlice';
+import logo from '../Images/logo/taskify-logo.png'
+import { toast } from "react-toastify";
 
 export default function Login() {
   const dispatch = useDispatch();
@@ -16,7 +18,11 @@ export default function Login() {
   const { values, errors, onChange, validate } = useForm({ username: '', password: '' });
 
   useEffect(() => {
-    if (isAuthed) navigate('/dashboard');
+    if (isAuthed) {navigate('/dashboard')
+        setTimeout(()=>{
+      toast.success("Logged in Successfully! 🎉");
+    },1000)
+    };
   }, [isAuthed, navigate]);
 
   const onSubmit = (e) => {
@@ -27,15 +33,21 @@ export default function Login() {
   };
 
   return (
-    <div className="card" style={{ maxWidth: 420, margin: '40px auto' }}>
-      <h2>Login</h2>
-      <form onSubmit={onSubmit} className="grid" style={{ gap: 12 }}>
+      <div
+        className="flex flex-col  justify-center items-center h-[510px] lg:flex-row w-full overflow-y-scroll [scrollbar-width:none] 
+      [-ms-overflow-style:none] bg-[url('../../assets/images/login-bg.webp')] bg-no-repeat bg-cover !px-0"
+      >
+    <div className="card flex flex-col justify-center items-center w-[480px] h-[480px] p-[48px] shadow-[3px_3px_4px_3px_rgba(0,0,0,0.1)] rounded">
+      <h2 className='font-bold text-[24px] w-full text-center mb-[11px]'>Welcome Back!</h2>
+              <img src={logo} alt='logo' width={130}></img>
+      <form onSubmit={onSubmit} className="grid w-full" style={{ gap: 12 }}>
         <TextField label="Username" name="username" value={values.username} onChange={onChange} error={errors.username} placeholder="demo" />
         <TextField label="Password" name="password" type="password" value={values.password} onChange={onChange} error={errors.password} placeholder="demo123" />
-        <Button type="submit" disabled={status === 'loading'}>{status === 'loading' ? 'Signing in…' : 'Login'}</Button>
+        <Button type="submit" className="w-full" disabled={status === 'loading'}>{status === 'loading' ? 'Signing in…' : 'Log In'}</Button>
         {error && <div className="helper" role="alert">{error}</div>}
         <div className="helper">Try <strong>demo / demo123</strong></div>
       </form>
+    </div>
     </div>
   );
 }
