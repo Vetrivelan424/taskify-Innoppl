@@ -1,29 +1,71 @@
-# README #
+# User Management App (React + Hooks + Redux)
 
-This README would normally document whatever steps are necessary to get your application up and running.
+A simple user management system with login, profile edit, and to-do CRUD + filters. State is managed with Redux Toolkit and persisted to Local Storage.
 
-### What is this repository for? ###
+## Features
+- Login with hardcoded or mock API credentials
+- Protected routes (Dashboard, Profile, Todos)
+- Profile view/edit with basic validation
+- Todo CRUD and filters (All, Completed, Pending)
+- Logout (clears Redux + Local Storage)
+- Clean responsive UI with basic CSS
 
-* Quick summary
-* Version
-* [Learn Markdown](https://bitbucket.org/tutorials/markdowndemo)
+## Quick Start
+```bash
+npm i
+npm run dev
+```
 
-### How do I get set up? ###
+App defaults:
+- **Username:** demo
+- **Password:** demo123
 
-* Summary of set up
-* Configuration
-* Dependencies
-* Database configuration
-* How to run tests
-* Deployment instructions
+## Scripts
+- `npm run dev` - start dev server (Vite)
+- `npm run build` - production build
+- `npm run preview` - preview production build locally
 
-### Contribution guidelines ###
+## Tech
+- React 18, React Router v6
+- Redux Toolkit, React-Redux
+- Vite
 
-* Writing tests
-* Code review
-* Other guidelines
+## Structure
+See the `src/` folder for features, pages, components, and store setup.
 
-### Who do I talk to? ###
+# Project Structure
 
-* Repo owner or admin
-* Other community or team contact
+```
+Taskify/
+├── package.json
+├── README.md
+├── public/
+│   └── index.html
+└── src/
+    ├── App.jsx
+    ├── index.css
+    ├── main.jsx
+    ├── routes/ProtectedRoute.jsx
+    ├── store/
+    │   ├── index.js
+    │   └── persist.js
+    ├── utils/localStorage.js
+    ├── api/mockAuth.js
+    ├── hooks/useForm.js
+    ├── components/
+    │   ├── Navbar.jsx
+    │   ├── TextField.jsx
+    │   ├── Button.jsx
+    │   ├── TodoItem.jsx
+    │   └── TodoFilters.jsx
+    ├── features/
+    │   ├── auth/authSlice.js
+    │   └── todos/todosSlice.js
+    └── pages/
+        ├── Login.jsx
+        ├── Dashboard.jsx
+        ├── Profile.jsx
+        └── Todos.jsx
+```
+
+---
