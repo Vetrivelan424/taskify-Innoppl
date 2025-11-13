@@ -1,4 +1,4 @@
-# User Management App (React + Hooks + Redux)
+# Taskify (React + Hooks + Redux)
 
 A simple user management system with login, profile edit, and to-do CRUD + filters. State is managed with Redux Toolkit and persisted to Local Storage.
 
@@ -19,6 +19,9 @@ npm run dev
 App defaults:
 - **Username:** demo
 - **Password:** demo123
+
+## Live Demo
+-[Click here for live demo](https://main.d1moibjlehff23.amplifyapp.com/)
 
 ## Scripts
 - `npm run dev` - start dev server (Vite)
