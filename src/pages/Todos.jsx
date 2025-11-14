@@ -57,8 +57,9 @@ export default function Todos() {
           description: values.description.trim()
         })
       );
+      toast.success("Task Created Successfully! 🎉");
     }
-toast.success("Task Created Successfully! 🎉");
+
     // Reset form fields
     setValues({ title: '', description: '' });
   };
@@ -151,7 +152,7 @@ toast.success("Task Created Successfully! 🎉");
                 todo={t}
                 onToggle={(id) => dispatch(toggleTodo(id))}
                 onEdit={() => onEdit(t)} // Fill form on edit
-                onDelete={(id) => dispatch(deleteTodo(id))}
+                onDelete={(id) => {dispatch(deleteTodo(id)); toast.success("Task Deleted Successfully! 🎉");}}
               />
             ))}
           </div>
