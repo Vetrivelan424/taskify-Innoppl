@@ -19,11 +19,11 @@ export default function Navbar() {
 
   return (
     <> {!isAuthed ? "" :
-    <div className="header flex gap-[15px] p-[15px] shadow-[0px_0px_0px_1px_rgba(0,0,0,0.1)] fixed top-0 w-full bg-white">
+    <div className="header  flex flex-wrap md:flex-nowrap gap-[15px] p-[15px] shadow-[0px_0px_0px_1px_rgba(0,0,0,0.1)] fixed top-0 w-full bg-white">
       <div className="brand mt-[5px]">
         <img src={logo} alt='logo' width={130}></img>
       </div>
-      <nav className="nav flex gap-[20px] justify-between items-center w-full">
+      <nav className="nav flex flex flex-wrap md:flex-nowrap gap-[20px] justify-between items-center w-full">
 
         {isAuthed && (
           <div className='flex gap-[15px]'>

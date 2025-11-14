@@ -14,7 +14,7 @@ export default function Dashboard() {
         <h2 className='text-[#171A1FFF] text-[30px] font-bold mb-[14px]'>Welcome back, {username}</h2>
       <p className="helper text-[#565D6DFF] text-[14px]">Let's get things done and organized efficiently.</p>
       </div>
-      <div className="flex  flex-col gap-[30px]  justify-center w-full">
+      <div className="flex flex-wrap flex-col gap-[30px]  justify-center w-full">
         <div className='card flex flex-col justify-between w-full rounded-[7px] shadow-[0px_0px_4px_0px_rgba(0,0,0,0.1)] p-[24px] transition-all duration-500 
               ease-in-out transform hover:-translate-y-1 hover:shadow-[0px_0px_4px_3px_rgba(0,0,0,0.1)]'>
                 <h3 className='text-[#171A1FFF] text-[24px] font-bold mb-[18px]'>Account Overview</h3>
@@ -30,7 +30,7 @@ export default function Dashboard() {
                 </div>
 
         </div>
-        <div className='flex gap-[15px]'>
+        <div className='flex flex-wrap md:flex-nowrap gap-[15px]'>
            <div className="card flex flex-col justify-between w-half rounded-[7px] shadow-[0px_0px_4px_0px_rgba(0,0,0,0.1)] p-[24px] transition-all duration-500 
               ease-in-out transform hover:-translate-y-1 hover:shadow-[0px_0px_4px_3px_rgba(0,0,0,0.1)]">
                 <div>
