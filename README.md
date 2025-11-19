@@ -21,7 +21,7 @@ App defaults:
 - **Password:** demo123
 
 ## Live Demo
-[Click here for live demo](https://main.d1moibjlehff23.amplifyapp.com/login)
+[Click here for live demo](https://main.d1moibjlehff23.amplifyapp.com)
 
 ## Scripts
 - `npm run dev` - start dev server (Vite)
